@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="card_view" type="id">lihat</item>
+    <item name="layout_button" type="id">button</item>
+    <item name="btn_set_favorite" type="id">tombol</item>
+</resources>
