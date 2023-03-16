@@ -8,7 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class GridHeroAdapter(val listHeroes: ArrayList<Hero>) : RecyclerView.Adapter<GridHeroAdapter.GridViewHolder>() {
+
+class GridHeroAdapter(val listHeroes: ArrayList<Hero>) :
+    RecyclerView.Adapter<GridHeroAdapter.GridViewHolder>() {
+
+    private lateinit var onItemClickCallback: ListHeroAdapter.OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: ListHeroAdapter.OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i : Int): GridViewHolder {
         val view : View = LayoutInflater.from(viewGroup. context).inflate(R.layout.item_grid_hero, viewGroup, false)
@@ -28,6 +36,9 @@ class GridHeroAdapter(val listHeroes: ArrayList<Hero>) : RecyclerView.Adapter<Gr
 
     inner class GridViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var imgPhoto : ImageView = itemView.findViewById(R.id.img_item_photo_grid)
+    }
+    interface OnItemClickCallback : ListHeroAdapter.OnItemClickCallback {
+        override fun onItemClicked(data: Hero)
     }
 
 
